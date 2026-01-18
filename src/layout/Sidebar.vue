@@ -8,17 +8,13 @@
       text-color="#bfcbd9"
       active-text-color="#409eff"
     >
-      <el-menu-item index="/">
-        <el-icon><House /></el-icon>
-        <template #title>首页</template>
-      </el-menu-item>
-      <el-menu-item index="/user">
-        <el-icon><User /></el-icon>
-        <template #title>用户管理</template>
-      </el-menu-item>
-      <el-menu-item index="/settings">
-        <el-icon><Setting /></el-icon>
-        <template #title>系统设置</template>
+      <el-menu-item
+        v-for="route in menuRoutes"
+        :key="route.path"
+        :index="route.path"
+      >
+        <el-icon><component :is="getIcon(route.meta?.icon)" /></el-icon>
+        <template #title>{{ route.meta?.title }}</template>
       </el-menu-item>
     </el-menu>
   </el-aside>
@@ -27,10 +23,29 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { usePermissionStore } from '@/stores/permission'
 import { House, User, Setting } from '@element-plus/icons-vue'
 
 const route = useRoute()
+const permissionStore = usePermissionStore()
 const activeMenu = computed(() => route.path)
+
+const menuRoutes = computed(() => {
+  const routes = permissionStore.routes
+  if (routes.length > 0 && routes[0].children) {
+    return routes[0].children
+  }
+  return []
+})
+
+const getIcon = (iconName) => {
+  const iconMap = {
+    'House': House,
+    'User': User,
+    'Setting': Setting
+  }
+  return iconMap[iconName] || House
+}
 </script>
 
 <style scoped>

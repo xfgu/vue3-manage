@@ -26,19 +26,19 @@ const routesMap = {
           path: 'dashboard',
           name: 'Dashboard',
           component: '/views/Dashboard',
-          meta: { title: '首页' }
+          meta: { title: '首页', icon: 'House' }
         },
         {
           path: 'user',
           name: 'User',
           component: '/views/User',
-          meta: { title: '用户管理' }
+          meta: { title: '用户管理', icon: 'User' }
         },
         {
           path: 'settings',
           name: 'Settings',
           component: '/views/Settings',
-          meta: { title: '系统设置' }
+          meta: { title: '系统设置', icon: 'Setting' }
         }
       ]
     }
@@ -54,7 +54,7 @@ const routesMap = {
           path: 'dashboard',
           name: 'Dashboard',
           component: '/views/Dashboard',
-          meta: { title: '首页' }
+          meta: { title: '首页', icon: 'House' }
         }
       ]
     }
