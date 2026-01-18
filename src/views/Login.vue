@@ -24,8 +24,10 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 
 const router = useRouter()
+const userStore = useUserStore()
 const loginFormRef = ref(null)
 const loading = ref(false)
 const loginForm = ref({
@@ -44,7 +46,6 @@ const handleLogin = async () => {
     if (valid) {
       loading.value = true
       try {
-        // TODO: 调用登录接口
         const res = {
           data: {
             token: 'mock-token-' + Date.now(),
@@ -55,8 +56,8 @@ const handleLogin = async () => {
             }
           }
         }
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem('userInfo', JSON.stringify(res.data.userInfo))
+        userStore.setToken(res.data.token)
+        userStore.setUserInfo(res.data.userInfo)
         router.push('/')
       } catch (error) {
         console.error('登录失败', error)
