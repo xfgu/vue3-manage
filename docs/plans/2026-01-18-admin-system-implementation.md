@@ -1266,7 +1266,7 @@ pnpm add -D express cors @originjs/vite-plugin-commonjs
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "mock": "node mock/server.js"
+    "mock": "node mock/server.cjs"
   },
   "type": "module"
 }
