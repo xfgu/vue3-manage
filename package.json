@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "mock": "node mock/server.js"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.2",
@@ -17,7 +18,10 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@vitejs/plugin-vue": "^6.0.1",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
     "vite": "^7.2.4"
   }
 }
