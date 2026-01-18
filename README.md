@@ -1,5 +1,54 @@
-# Vue 3 + Vite
+# Vue 3 后台管理系统
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+一个基于 Vue 3 的后台管理系统，实现用户权限管理和动态路由功能。
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## 功能特性
+
+- 用户登录认证
+- 基于角色的动态路由
+- 路由权限控制
+- Token 持久化
+- 刷新页面后路由保持
+- 退出登录
+
+## 技术栈
+
+- Vue 3
+- Vue Router 4
+- Pinia
+- Element Plus
+- Axios
+
+## 快速开始
+
+### 1. 安装依赖
+```bash
+pnpm install
+```
+
+### 2. 启动 Mock 服务器
+```bash
+pnpm run mock
+```
+
+### 3. 启动开发服务器
+```bash
+pnpm run dev
+```
+
+## 测试账号
+
+### 管理员账号
+- 用户名: admin
+- 密码: 123456
+- 权限: 可访问所有页面
+
+### 普通用户账号
+- 用户名: user
+- 密码: 123456
+- 权限: 仅可访问首页
+
+## 详细文档
+
+查看 [使用指南](./docs/plans/2026-01-18-usage-guide.md) 了解更多详情。
+
