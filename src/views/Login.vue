@@ -49,12 +49,14 @@ const handleLogin = async () => {
       loading.value = true
       try {
         const res = await login(loginForm.value)
+        console.log('登录响应:', res)
         userStore.setToken(res.data.token)
         userStore.setUserInfo(res.data.userInfo)
         ElMessage.success('登录成功')
         router.push('/')
       } catch (error) {
         console.error('登录失败', error)
+        ElMessage.error('登录失败: ' + error.message)
       } finally {
         loading.value = false
       }

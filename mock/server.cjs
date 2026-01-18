@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const app = express()
-const PORT = 3001
+const PORT = 3002
 
 app.use(cors())
 app.use(express.json())
@@ -102,11 +102,24 @@ app.get('/api/routes', (req, res) => {
   const role = token.includes('admin') ? 'admin' : 'user'
   const routes = routesMap[role] || []
 
-  // 转换路由格式
-  const formattedRoutes = routes.map(route => ({
-    ...route,
-    component: route.component.replace(/^\//, '@/')
-  }))
+  // 递归转换路由格式
+  function transformRoute(route) {
+    const transformed = { ...route }
+    
+    // 转换 component 路径
+    if (typeof transformed.component === 'string') {
+      transformed.component = transformed.component.replace(/^\//, '@/')
+    }
+    
+    // 递归处理子路由
+    if (transformed.children && Array.isArray(transformed.children)) {
+      transformed.children = transformed.children.map(transformRoute)
+    }
+    
+    return transformed
+  }
+  
+  const formattedRoutes = routes.map(transformRoute)
 
   res.json({
     code: 200,
