@@ -15,21 +15,18 @@
 **Files:**
 - Modify: `package.json`
 
-**Step 1: 安装所需的 npm 包**
-
+**Step 1: 安装所需的 pnpm包**
 ```bash
-npm install vue-router@4 pinia element-plus axios @element-plus/icons-vue
+pnpm install vue-router@4 pinia element-plus axios @element-plus/icons-vue
 ```
-
 **Step 2: 验证安装**
 
-Run: `npm list vue-router pinia element-plus axios`
-Expected: 显示已安装的包及其版本
+Run: `pnpm list vue-router pinia element-plus axios`
 
 **Step 3: 提交**
 
 ```bash
-git add package.json package-lock.json
+git add package.json pnpm-lock.yaml
 git commit -m "chore: install vue-router, pinia, element-plus and axios"
 ```
 
@@ -83,7 +80,7 @@ app.mount('#app')
 
 **Step 3: 验证配置**
 
-Run: `npm run dev`
+Run: `pnpm run dev`
 Expected: 项目正常启动，访问 /login 不报错
 
 **Step 4: 提交**
@@ -225,7 +222,7 @@ body {
 
 **Step 3: 验证登录页**
 
-Run: `npm run dev`
+Run: `pnpm run dev`
 Expected: 访问 /login 显示登录表单，点击登录跳转到根路径
 
 **Step 4: 提交**
@@ -1257,7 +1254,7 @@ app.listen(PORT, () => {
 **Step 3: 安装 mock 服务器依赖**
 
 ```bash
-npm install express cors @originjs/vite-plugin-commonjs -D
+pnpm add -D express cors @originjs/vite-plugin-commonjs
 ```
 
 **Step 4: 更新 package.json 添加 mock 脚本**
@@ -1270,7 +1267,8 @@ npm install express cors @originjs/vite-plugin-commonjs -D
     "build": "vite build",
     "preview": "vite preview",
     "mock": "node mock/server.js"
-  }
+  },
+  "type": "module"
 }
 ```
 
@@ -1504,12 +1502,12 @@ git commit -m "feat: support dynamic menu routes in sidebar"
 
 1. 启动 mock 服务器：
    ```bash
-   npm run mock
+   pnpm run mock
    ```
 
 2. 启动开发服务器：
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
 3. 测试场景：
@@ -1531,17 +1529,17 @@ git commit -m "feat: support dynamic menu routes in sidebar"
 
 ### 1. 安装依赖
 ```bash
-npm install
+pnpm install
 ```
 
 ### 2. 启动 Mock 服务器
 ```bash
-npm run mock
+pnpm run mock
 ```
 
 ### 3. 启动开发服务器
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 ## 测试账号
